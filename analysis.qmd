@@ -51,9 +51,10 @@ crypto |>
   geom_label(
     data = tibble(
       event = c("Luna/UST crash", "FTX collapse"),
-      date = as.Date(c("2022-05-09", "2022-11-09"))
+      date = as.Date(c("2022-05-09", "2022-11-09")),
+      y = c(0.82, 0.62)
     ),
-    aes(x = date, y = 0.98, label = event),
+    aes(x = date, y = y, label = event),
     inherit.aes = FALSE,
     angle = 90,
     size = 2.8,
@@ -76,6 +77,13 @@ crypto |>
       "Source: daily_prices.parquet and coin-level metadata.",
       "Market caps summed by category and day."
     )
+  ) +
+  theme_minimal(base_size = 11) +
+  theme(
+    plot.title = element_text(size = 16, face = "bold"),
+    plot.subtitle = element_text(size = 10),
+    plot.caption = element_text(size = 8, hjust = 0),
+    plot.margin = margin(12, 12, 12, 12)
   )
 ```
 
